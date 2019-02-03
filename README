@@ -1,0 +1,8 @@
+## Welcome to HexChex Chinese Checkers
+
+## Build Instructions
+
+mkdir build
+cd build
+cmake .. && make
+make test
