@@ -27,6 +27,7 @@ enable_testing()
 # separate tests for each module
 add_test (NAME PointTest COMMAND unit_test --gtest_filter=PointTest*)
 add_test (NAME HexCornerTest COMMAND unit_test --gtest_filter=HexCornerTest*)
+add_test (NAME AxialTest COMMAND unit_test --gtest_filter=AxialTest*)
 
 ####
 ## Setup to use googletest
@@ -42,7 +43,8 @@ execute_process(COMMAND ${CMAKE_COMMAND} --build .
   RESULT_VARIABLE result
   WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/googletest-download )
 if(result)
-  message(FATAL_ERROR "Build step for googletest failed: ${result}")
+#  message(FATAL_ERROR "Build step for googletest failed: ${result}")
+  message(WARNING "Build step for googletest failed: ${result}")
 endif()
 # Add googletest directly to our build. This defines
 # the gtest and gtest_main targets.
