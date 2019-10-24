@@ -13,6 +13,7 @@ set (CMAKE_CXX_STANDARD 11)
 
 ## LIBRARY
 file(GLOB_RECURSE LIB_SOURCES src/*.cpp)
+list(REMOVE_ITEM LIB_SOURCES ${CMAKE_CURRENT_SOURCE_DIR}/src/main.cpp)
 
 ## TESTS
 file(GLOB_RECURSE TEST_SOURCES test/*.cpp)
@@ -28,6 +29,9 @@ enable_testing()
 add_test (NAME PointTest COMMAND unit_test --gtest_filter=PointTest*)
 add_test (NAME HexCornerTest COMMAND unit_test --gtest_filter=HexCornerTest*)
 add_test (NAME AxialTest COMMAND unit_test --gtest_filter=AxialTest*)
+
+# add `make check` target with more output
+add_custom_target(check COMMAND ${CMAKE_CTEST_COMMAND} --verbose)
 
 ####
 ## Setup to use googletest

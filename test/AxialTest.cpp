@@ -29,3 +29,9 @@ TEST(AxialTest, Conversion)
     CubePoint expected2{2, -1, -1};
     EXPECT_EQ(expected2, result2);
 }
+
+TEST(AxialTest, Errors)
+{
+    EXPECT_THROW(CubePoint p(1, 1, 1),
+                 std::runtime_error);
+}

@@ -5,4 +5,12 @@
 mkdir build
 cd build
 cmake .. && make
+
+
+## Running tests
+
+# To run all tests with short summary:
 make test
+
+# To see longer gtest output and test failures:
+make check
