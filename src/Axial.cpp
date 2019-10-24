@@ -9,7 +9,9 @@ CubePoint::CubePoint()
 CubePoint::CubePoint(int x, int y, int z)
     : x(x), y(y), z(z)
 {
-    // todo: check that x+y+z == 0
+    if (x + y + z != 0) {
+        throw std::runtime_error("Invalid coordinates for CubePoint");
+    }
 }
 
 CubePoint::CubePoint(const HexPoint &hex)
@@ -41,7 +43,7 @@ std::string CubePoint::ToString() const
     std::string str = "(";
     str += std::to_string(x) + ", ";
     str += std::to_string(y) + ", ";
-    str += std::to_string(x) + ")";
+    str += std::to_string(z) + ")";
     return str;
 }
 
