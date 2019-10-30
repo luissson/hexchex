@@ -1,0 +1,20 @@
+## Welcome to HexChex Chinese Checkers
+
+## Build Instructions
+
+mkdir build
+cd build
+cmake .. && make
+
+
+## Running tests
+
+# To run all tests with short summary:
+make test
+
+# To see longer gtest output and test failures:
+make check
+
+# Run individual unit tests with:
+cd build
+./unit_test --gtest_filter=TestName[*]

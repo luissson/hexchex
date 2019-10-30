@@ -1,5 +1,5 @@
 #include "Axial.h"
-
+#include <iostream>
 CubePoint::CubePoint()
     : x(0), y(0), z(0)
 {
@@ -86,4 +86,9 @@ HexPoint::HexPoint(const CubePoint &cube)
 bool HexPoint::operator==(const HexPoint &other) const
 {
     return (this->q == other.q && this->r == other.r);
+}
+
+bool HexPoint::operator<(const HexPoint &other) const
+{
+    return (CubePoint(*this) < CubePoint(other));
 }
